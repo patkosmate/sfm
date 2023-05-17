@@ -14,9 +14,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javax.swing.table.TableModel;
+
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -34,13 +35,13 @@ public class FXMLVinylRentalController implements Initializable {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     Integer index;
 
-    ObservableList<TableModel> listView = FXCollections.observableArrayList();
+    //ObservableList<TableModel> listView = FXCollections.observableArrayList();
 
     @FXML
-    private TableColumn<TableModel, Date> vinylDateColumn;
+    private TableColumn<Vinyl, Date> vinylDateColumn;
 
     @FXML
-    private TableColumn<TableModel, Date> rentedDateColumn;
+    private TableColumn<Vinyl, Date> rentedDateColumn;
 
     @FXML
     private TextField handleNameTyping;
@@ -55,25 +56,25 @@ public class FXMLVinylRentalController implements Initializable {
     private ImageView img;
 
     @FXML
-    private TableColumn<TableModel, String> vinylNameColumn;
+    private TableColumn<Vinyl, String> vinylNameColumn;
 
     @FXML
-    private TableColumn<TableModel, String> vinylTitleColumn;
+    private TableColumn<Vinyl, String> vinylTitleColumn;
 
     @FXML
-    private TableView<?> vinylTableView;
+    private TableView<Vinyl> vinylTableView;
 
     @FXML
-    private TableView<?> rentedTableView1;
+    private TableView<Vinyl> rentedTableView1;
 
     @FXML
-    private TableColumn<TableModel, String> rentedNameColumn;
+    private TableColumn<Vinyl, String> rentedNameColumn;
 
     @FXML
-    private TableColumn<TableModel, String> rentedTitleColumn;
+    private TableColumn<Vinyl, String> rentedTitleColumn;
 
     @FXML
-    private TableColumn<TableModel, String> rentedRenterColumn;
+    private TableColumn<Vinyl, String> rentedRenterColumn;
 
     @FXML
     void getitem(MouseEvent event) {
@@ -143,6 +144,8 @@ public class FXMLVinylRentalController implements Initializable {
             alert.setContentText(null);
             alert.showAndWait();
             vinylDAO.saveVinyl(newVinyl);
+            List<Vinyl> vinyls1 = vinylDAO.getVinyls();
+            vinylTableView.getItems().setAll(vinyls1);
             } else {
                 /*showAlertBox();*/
             }
@@ -158,6 +161,18 @@ public class FXMLVinylRentalController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        vinylNameColumn.setCellValueFactory(new PropertyValueFactory<>("Artist"));
+        vinylTitleColumn.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        vinylDateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
 
+        rentedNameColumn.setCellValueFactory(new PropertyValueFactory<>("Artist"));
+        rentedTitleColumn.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        rentedRenterColumn.setCellValueFactory(new PropertyValueFactory<>("Renter"));
+        rentedDateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
+
+        List<Vinyl> vinyls1 = vinylDAO.getVinyls();
+        List<Vinyl> rentedVinyls1 = vinylDAO.getRentedVinyl();
+        vinylTableView.getItems().setAll(vinyls1);
+        rentedTableView1.getItems().setAll(rentedVinyls1);
     }
 }

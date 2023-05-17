@@ -21,6 +21,18 @@ public class Vinyl {
 
     private LocalDate date;
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Boolean getRented() {
+        return rented;
+    }
+
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
