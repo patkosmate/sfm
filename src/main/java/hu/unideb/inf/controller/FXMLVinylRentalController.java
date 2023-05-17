@@ -5,8 +5,6 @@ import hu.unideb.inf.DAO.VinylDAO;
 import hu.unideb.inf.DAO.VinylJpaDAO;
 import hu.unideb.inf.model.Customer;
 import hu.unideb.inf.model.Vinyl;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,8 +13,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -54,6 +52,7 @@ public class FXMLVinylRentalController implements Initializable {
 
     @FXML
     private ImageView img;
+    //Image img = new Image(getClass().getResourceAsStream("fxml/vinyl.png"));
 
     @FXML
     private TableColumn<Vinyl, String> vinylNameColumn;
