@@ -26,7 +26,7 @@ public class VinylJpaDAO implements VinylDAO {
     @Override
     public void updateVinyl(Vinyl v) {
         entityManager.getTransaction().begin();
-        entityManager.persist(v);
+        entityManager.merge(v);
         entityManager.getTransaction().commit();
     }
 

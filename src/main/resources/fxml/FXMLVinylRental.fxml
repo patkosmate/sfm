@@ -162,7 +162,7 @@
                <content>
                   <VBox prefHeight="403.0" prefWidth="640.0">
                      <children>
-                        <TableView fx:id="rentedTableView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity"  onMouseClicked="#getitem" prefHeight="444.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="rentedTableView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity"  prefHeight="444.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
                            <columns>
                               <TableColumn fx:id="rentedNameColumn" prefWidth="160.0" text="Artist" />
                               <TableColumn fx:id="rentedTitleColumn" prefWidth="160.0" text="Title" />

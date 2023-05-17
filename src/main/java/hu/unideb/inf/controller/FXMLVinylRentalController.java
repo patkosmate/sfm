@@ -76,24 +76,31 @@ public class FXMLVinylRentalController implements Initializable {
     @FXML
     private TableColumn<Vinyl, String> rentedRenterColumn;
 
-    @FXML
-    void getitem(MouseEvent event) {
-
-    }
 
     @FXML
     void refreshRentedButtonPushed(ActionEvent event) {
-        rentedVinyls = vinylDAO.getRentedVinyl();
+        List<Vinyl> rentedVinyls1 = vinylDAO.getRentedVinyl();
+        rentedTableView1.getItems().setAll(rentedVinyls1);
     }
 
     @FXML
     void refreshVinylButtonPushed(ActionEvent event) {
-        vinyls = vinylDAO.getVinyls();
+        List<Vinyl> vinyls1 = vinylDAO.getVinyls();
+        vinylTableView.getItems().setAll(vinyls1);
     }
 
     @FXML
     void rentButtonPushed(ActionEvent event) {
-
+        Vinyl selectedVinyl = vinylTableView.getSelectionModel().getSelectedItem();
+        selectedVinyl.setRented(true);
+        selectedVinyl.setCustomer(signedUpCustomer);
+        signedUpCustomer.setVinyl(selectedVinyl);
+        customerDAO.updateCustomerDAO(signedUpCustomer);
+        vinylDAO.updateVinyl(selectedVinyl);
+        List<Vinyl> vinyls1 = vinylDAO.getVinyls();
+        List<Vinyl> rentedVinyls1 = vinylDAO.getRentedVinyl();
+        vinylTableView.getItems().setAll(vinyls1);
+        rentedTableView1.getItems().setAll(rentedVinyls1);
     }
 
     @FXML
@@ -167,7 +174,7 @@ public class FXMLVinylRentalController implements Initializable {
 
         rentedNameColumn.setCellValueFactory(new PropertyValueFactory<>("Artist"));
         rentedTitleColumn.setCellValueFactory(new PropertyValueFactory<>("Title"));
-        rentedRenterColumn.setCellValueFactory(new PropertyValueFactory<>("Renter"));
+        rentedRenterColumn.setCellValueFactory(new PropertyValueFactory<>("Customer"));
         rentedDateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
 
         List<Vinyl> vinyls1 = vinylDAO.getVinyls();

@@ -26,7 +26,6 @@ public class CustomerJpaDAO implements CustomerDAO {
     public Customer getCustomerByNameDAO(String name) {
         TypedQuery<Customer> query = entityManager.createQuery("SELECT a FROM Customer a  ", Customer.class);
         List<Customer> customers = query.getResultList();
-        System.out.println(customers.isEmpty());
         if(!customers.isEmpty()) {
             for (Customer c: customers) {
                 if(c.getName().equals(name)) return c;
@@ -38,7 +37,7 @@ public class CustomerJpaDAO implements CustomerDAO {
     @Override
     public void updateCustomerDAO(Customer c) {
         entityManager.getTransaction().begin();
-        entityManager.persist(c);
+        entityManager.merge(c);
         entityManager.getTransaction().commit();
     }
 

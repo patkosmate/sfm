@@ -18,6 +18,9 @@ public class Customer {
     public void setVinyls(List<Vinyl> vinyls) {
         this.vinyls = vinyls;
     }
+    public void setVinyl(Vinyl vinyl) {
+        this.vinyls.add(vinyl);
+    }
 
     @OneToMany(mappedBy = "customer")
 
