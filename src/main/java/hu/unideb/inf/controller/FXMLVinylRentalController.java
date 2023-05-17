@@ -32,7 +32,7 @@ public class FXMLVinylRentalController implements Initializable {
     List<Vinyl> rentedVinyls = new ArrayList<>();
     List<Vinyl> vinyls = new ArrayList<>();
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    Integer index;
+    //Integer index;
 
     ObservableList<TableModel> listView = FXCollections.observableArrayList();
 
