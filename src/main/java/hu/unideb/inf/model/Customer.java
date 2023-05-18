@@ -26,6 +26,14 @@ public class Customer {
 
     private List<Vinyl> vinyls = new ArrayList<>();
 
+    public Customer() {
+    }
+
+    public Customer(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
@@ -39,14 +47,6 @@ public class Customer {
     }
 
     public void setName(String name) {
-        this.name = name;
-    }
-
-    public Customer() {
-    }
-
-    public Customer(int id, String name){
-        this.id = id;
         this.name = name;
     }
 

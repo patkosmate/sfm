@@ -21,33 +21,32 @@ public class Vinyl {
 
     private LocalDate date;
 
-    public LocalDate getDate() {
-        return date;
+    public Vinyl() {
     }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public Boolean getRented() {
-        return rented;
-    }
-
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Boolean getRented() {
+        return rented;
     }
 
     public void setRented(Boolean rented) {
         this.rented = rented;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
     public void setDate(LocalDate date) {
         this.date = date;
     }
-
-    public Vinyl() {
-    }
-
 
     public int getId() {
         return id;

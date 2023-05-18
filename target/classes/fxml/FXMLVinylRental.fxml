@@ -45,15 +45,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.image.Image?>
 <VBox prefHeight="464.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.controller.FXMLVinylRentalController">
    <children>
       <TabPane prefHeight="520.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab text="Sign Up">
                <content>
-                  <VBox alignment="CENTER" prefHeight="113.0" prefWidth="640.0">
+                  <VBox alignment="BASELINE_CENTER" prefHeight="113.0" prefWidth="640.0">
                      <children>
                         <ImageView fx:id="img" fitHeight="200.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/vinyl.png"/>
+                           </image>
                            <VBox.margin>
                               <Insets bottom="20.0" />
                            </VBox.margin>
@@ -162,7 +166,7 @@
                <content>
                   <VBox prefHeight="403.0" prefWidth="640.0">
                      <children>
-                        <TableView fx:id="rentedTableView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity"  onMouseClicked="#getitem" prefHeight="444.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
+                        <TableView fx:id="rentedTableView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity"  prefHeight="444.0" prefWidth="640.0" VBox.vgrow="ALWAYS">
                            <columns>
                               <TableColumn fx:id="rentedNameColumn" prefWidth="160.0" text="Artist" />
                               <TableColumn fx:id="rentedTitleColumn" prefWidth="160.0" text="Title" />

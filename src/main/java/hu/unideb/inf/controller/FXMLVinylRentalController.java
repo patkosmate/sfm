@@ -52,7 +52,6 @@ public class FXMLVinylRentalController implements Initializable {
 
     @FXML
     private ImageView img;
-    //Image img = new Image(getClass().getResourceAsStream("fxml/vinyl.png"));
 
     @FXML
     private TableColumn<Vinyl, String> vinylNameColumn;
@@ -153,10 +152,13 @@ public class FXMLVinylRentalController implements Initializable {
             List<Vinyl> vinyls1 = vinylDAO.getVinyls();
             vinylTableView.getItems().setAll(vinyls1);
             } else {
-                /*showAlertBox();*/
+                alert.setAlertType(Alert.AlertType.ERROR);
+                alert.setTitle("There is nothing to upload!");
+                alert.setHeaderText("Please provide artist and title!");
+                alert.setContentText(null);
+                alert.showAndWait();
             }
-        }
-            else {
+        } else {
                 alert.setAlertType(Alert.AlertType.ERROR);
                 alert.setTitle("Please registrate or sing in");
                 alert.setHeaderText(null);
